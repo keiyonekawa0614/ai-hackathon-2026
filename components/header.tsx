@@ -22,7 +22,7 @@ export function Header() {
             <Sparkles className="h-4 w-4 text-accent-foreground" />
           </div>
           <span className="text-lg font-semibold tracking-tight">
-            AI Hackathon 2026
+            AIハッカソン 2026
           </span>
         </div>
 
