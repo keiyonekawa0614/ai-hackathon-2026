@@ -1,45 +1,30 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Noto_Sans_JP, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const geistSans = Geist({ 
+const notoSansJP = Noto_Sans_JP({ 
   subsets: ["latin"],
-  variable: '--font-geist-sans',
+  variable: '--font-noto-sans-jp',
+  weight: ['300', '400', '500', '700'],
 })
+
 const geistMono = Geist_Mono({ 
   subsets: ["latin"],
   variable: '--font-geist-mono',
 })
 
 export const metadata: Metadata = {
-  title: 'AI Hackathon 2026',
-  description: 'AIハッカソン用Webアプリケーションテンプレート',
+  title: 'ZEN - 釣り動画判定AI',
+  description: '最短で、より善い情報を。YouTubeの「釣り動画」をAIが分析し、善なる情報へのアクセスをサポートします。',
   generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#f8f8f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a1e' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -51,11 +36,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+    <html lang="ja" suppressHydrationWarning className="bg-background">
+      <body className={`${notoSansJP.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
